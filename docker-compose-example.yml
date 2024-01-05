@@ -6,10 +6,11 @@ volumes:
 services:
 
   browser:
-    image: balenalabs/browser-amd64
-    build:
-      dockerfile: ./Dockerfile.template
+    #image: bh.cr/balenalabs/browser-amd64 # where <arch> is one of aarch64, arm32 or amd64
+    image: balenalabs/browser-amd64 
     privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
-    network_mode: host
+    ports:
+        - '5011' # management API (optional)
+        - '35173' # Chromium debugging port (optional)
     volumes:
       - 'settings:/data' # Only required if using PERSISTENT flag (see below)

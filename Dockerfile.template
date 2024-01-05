@@ -1,6 +1,7 @@
 ARG NODEJS_VERSION="16.19.1"
 
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-node:${NODEJS_VERSION}-bullseye-run
+#FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-node:${NODEJS_VERSION}-bullseye-run
+FROM balenalib/amd64-debian-node:${NODEJS_VERSION}-bullseye-run
 
 # install required packages
 RUN install_packages \
